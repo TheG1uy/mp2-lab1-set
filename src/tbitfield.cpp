@@ -7,31 +7,41 @@
 
 #include "tbitfield.h"
 
-TBitField::TBitField(int len)
-{
+TBitField::TBitField(int len){
+	BitLen=len;
+	MemLen=BitLen/sizeof(TELEM)+1;
+	pMem=new TELEM[MemLen];
+	memset(pMem,0,MemLen*4);
 }
 
 TBitField::TBitField(const TBitField &bf) // конструктор копирования
 {
+	BitLen=bf.BitLen;
+	MemLen=bf.MemLen;
+	pMem=new TELEM[MemLen];
+	memcpy(pMem,bf.pMem,MemLen*4);
 }
 
 TBitField::~TBitField()
 {
+	delete [] pMem;
 }
 
 int TBitField::GetMemIndex(const int n) const // индекс Мем для бита n
 {
+	return (n/sizeof(TELEM));
 }
 
 TELEM TBitField::GetMemMask(const int n) const // битовая маска для бита n
 {
+	return (1<<(n%sizeof(TELEM));
 }
 
 // доступ к битам битового поля
 
 int TBitField::GetLength(void) const // получить длину (к-во битов)
 {
-  return 0;
+  return BitLen;
 }
 
 void TBitField::SetBit(const int n) // установить бит

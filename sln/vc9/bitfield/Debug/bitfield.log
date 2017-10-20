@@ -1,0 +1,3 @@
+﻿  tbitfield.cpp
+c:\users\павел\source\repos\mp2-lab1-set\src\tbitfield.cpp(60): warning C4554: &: проверьте порядок применения операторов на наличие ошибки; для четкого задания порядка используйте скобки
+  bitfield.vcxproj -> C:\Users\Павел\Source\Repos\mp2-lab1-set\sln\vc9\Debug\bitfield.lib

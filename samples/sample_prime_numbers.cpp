@@ -17,7 +17,6 @@
 int main()
 {
   int n, m, k, count;
-
   setlocale(LC_ALL, "Russian");
   TBitField a(10);
 
